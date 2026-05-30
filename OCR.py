@@ -20,8 +20,7 @@ def main():
     except Exception as e:
         print(f"Error: {e}")
     else:
-        text = pytesseract.image_to_string(img)
-        print(f"Extracted Text: \n\n{text.strip()}")
-
+        text = pytesseract.image_to_string(img).strip()
+        subprocess.run(["xclip", "-selection", "clipboard"], input=text, text=True, check=True)
 if __name__ == "__main__":
     main()
