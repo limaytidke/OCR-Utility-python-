@@ -3,7 +3,8 @@ import os
 import pytesseract
 from PIL import Image
 
-image_path = "/home/limay/Projects/OCR-Utility/save.png"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+image_path = f"{BASE_DIR}+save.png"
 
 print("Select area")
 
@@ -20,7 +21,7 @@ def main():
         print(f"Error: {e}")
     else:
         text = pytesseract.image_to_string(img)
-        print(f"Extracted Text: {text.strip()}")
+        print(f"Extracted Text: \n\n{text.strip()}")
 
 if __name__ == "__main__":
     main()
